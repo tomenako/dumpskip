@@ -1,3 +1,3 @@
-X_VALUE=$((RANDOM%100))
-Y_VALUE=$((RANDOM%100))
-curl localhost:8888/wastes -X POST -H "Content-Type: application/json" -d '{"id":"007","name":"Brodwino 7","description":"Brodwino środek", "x":"$X_VALUE", "y":"$Y_VALUE"}'
+ID_VALUE=$((RANDOM%7777))
+TIME=$(date '+%s%N')
+curl localhost:8888/wastes -X POST -H "Content-Type: application/json" -d '{"id":"'$ID_VALUE'","name":"Brodwino '$ID_VALUE'","description":"Brodwino desc", "x":"'$ID_VALUE'", "y":"'$ID_VALUE'", "device":"baba1234fefe", "time":"'$TIME'"}'
