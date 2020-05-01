@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class WasteService {
 
 	private List<Waste> wasteList = new ArrayList<>(Arrays.asList(
-				new Waste("001","Brodwino","Brodwino koło ujęcia wody","100", "100")
+				new Waste("0001","Brodwino","Brodwino koło ujęcia wody","100", "100", "aa11bbcc111", "1588319796266734293")
 			));
 
 	public List<Waste> getAllWastes() {

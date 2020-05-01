@@ -6,17 +6,21 @@ public class Waste {
 	private String description;
 	private String x;
 	private String y;
+	private String device;
+	private String time;
 
 	public Waste() {
 	}
 	
-	public Waste(String id, String name, String description, String x, String y) {
+	public Waste(String id, String name, String description, String x, String y, String device, String time) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.x = x;
 		this.y = y;		
+		this.device = device;
+		this.time = time;
 	}
 	
 	public String getId() {
@@ -48,6 +52,17 @@ public class Waste {
 	}
 	public void setY(String y) {
 		this.y = y;
-	}	
-	
+	}
+	public String getDevice() {
+		return device;
+	}
+	public void setDevice(String device) {
+		this.device = device;
+	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
 }
