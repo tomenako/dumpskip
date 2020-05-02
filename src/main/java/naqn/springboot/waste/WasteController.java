@@ -20,9 +20,16 @@ public class WasteController {
 		return wasteService.getAllWastes();
 	}
 
-	@RequestMapping("/wastes/{id:[\\d]+}")
-	public Waste getWaste(@PathVariable long idFromUrl) {		
+	@RequestMapping(method=RequestMethod.GET, value="/wastes/{id}")
+	public Waste getWaste(@PathVariable (name = "id") Long idFromUrl) {
 		return wasteService.getWaste(idFromUrl);
+//		//return wasteService.findB
+//		Optional<Waste> waste =  getAllWastes().stream().filter(x -> idFromUrl.equals(x.getId())).findFirst();
+//		if (waste.isPresent()) {
+//			return waste.get();
+//		} else {
+//			return null;
+//		}
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/wastes")
@@ -31,13 +38,20 @@ public class WasteController {
 	}
 
 	@RequestMapping(method=RequestMethod.PUT, value="/wastes/{id}")
-	public Waste updateWaste(@PathVariable Long idString, @RequestBody Waste waste) {
+	public Waste updateWaste(@PathVariable(name = "id") Long idString, @RequestBody Waste waste) {
 		return wasteService.updateWaste(idString, waste);
 	}
 
-	@RequestMapping(method=RequestMethod.DELETE, value="/wastes/{id:[\\d]+}")
-	public void updateWaste(@PathVariable long idFromUrl) {
-		wasteService.deleteWaste(idFromUrl);
+	@RequestMapping(method=RequestMethod.DELETE, value="/wastes/{id}")
+	public void deleteWaste(@PathVariable(name = "id") Long idFromUrl) {
+		wasteService.deleteWaste(idFromUrl);		
+//		Optional<Waste> waste =  getAllWastes().stream().filter(x -> idFromUrl.equals(x.getId())).findFirst();
+//		if (waste.isPresent()) {
+//
+//			return waste.get();
+//		} else {
+//			return null;
+//		}
 	}	
 	
 }

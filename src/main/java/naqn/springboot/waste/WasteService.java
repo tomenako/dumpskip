@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class WasteService {
@@ -18,20 +19,30 @@ public class WasteService {
 	}
 	
 	public Waste getWaste(Long id) {
-		return wasteRepo.findOne(""+id);		
+		return wasteRepo.findById(id);		
 	}
 
+	@Transactional
 	public Waste addWaste(Waste waste) {
 		return wasteRepo.save(waste);
 	}
 
+	@Transactional
 	public Waste updateWaste(Long id, Waste waste) {
-		waste.setId(id);
-		return wasteRepo.save(waste);
+		if (wasteRepo.existsById(id)) {
+			waste.setId(id);
+			return wasteRepo.save(waste);
+		} else {
+			return null;
+		}
 	}
 	
-	public void deleteWaste(Long id) {		
-		wasteRepo.delete(""+id);		
+	@Transactional
+	public void deleteWaste(Long id) {
+		Waste waste = wasteRepo.findById(id);
+		if (null != waste) {
+			wasteRepo.delete(waste);			
+		}
 	}	
 	
 }
