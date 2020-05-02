@@ -17,21 +17,21 @@ public class WasteService {
 		return wasteList;
 	}
 	
-	public Waste getWaste(String id) {
-		return wasteRepo.findOne(id);		
+	public Waste getWaste(Long id) {
+		return wasteRepo.findOne(""+id);		
 	}
 
 	public Waste addWaste(Waste waste) {
 		return wasteRepo.save(waste);
 	}
 
-	public Waste updateWaste(String id, Waste waste) {
+	public Waste updateWaste(Long id, Waste waste) {
 		waste.setId(id);
 		return wasteRepo.save(waste);
 	}
 	
-	public void deleteWaste(String id) {		
-		wasteRepo.delete(id);		
+	public void deleteWaste(Long id) {		
+		wasteRepo.delete(""+id);		
 	}	
 	
 }

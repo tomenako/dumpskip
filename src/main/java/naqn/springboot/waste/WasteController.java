@@ -21,8 +21,8 @@ public class WasteController {
 	}
 
 	@RequestMapping("/wastes/{id}")
-	public Waste getWaste(@PathVariable String id) {
-		return wasteService.getWaste(id);
+	public Waste getWaste(@PathVariable Long idString) {
+		return wasteService.getWaste(idString);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/wastes")
@@ -31,13 +31,13 @@ public class WasteController {
 	}
 
 	@RequestMapping(method=RequestMethod.PUT, value="/wastes/{id}")
-	public Waste updateWaste(@PathVariable String id, @RequestBody Waste waste) {
-		return wasteService.updateWaste(id, waste);
+	public Waste updateWaste(@PathVariable Long idString, @RequestBody Waste waste) {
+		return wasteService.updateWaste(idString, waste);
 	}
 
 	@RequestMapping(method=RequestMethod.DELETE, value="/wastes/{id}")
-	public void updateWaste(@PathVariable String id) {
-		wasteService.deleteWaste(id);
+	public void updateWaste(@PathVariable Long idString) {
+		wasteService.deleteWaste(idString);
 	}	
 	
 }
