@@ -20,9 +20,9 @@ public class WasteController {
 		return wasteService.getAllWastes();
 	}
 
-	@RequestMapping("/wastes/{id}")
-	public Waste getWaste(@PathVariable Long idString) {
-		return wasteService.getWaste(idString);
+	@RequestMapping("/wastes/{id:[\\\\d]+}")
+	public Waste getWaste(@PathVariable long idFromUrl) {		
+		return wasteService.getWaste(idFromUrl);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/wastes")
