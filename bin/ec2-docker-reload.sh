@@ -1,3 +1,4 @@
+git pull
 # build spring jar locally
 # mvn clean package
 # build local docker image
