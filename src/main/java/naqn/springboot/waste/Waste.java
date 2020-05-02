@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Waste {
     @Id	
     @GeneratedValue(strategy=GenerationType.AUTO)    
-	private String id;
+	private Long id;
 	private String name;
 	private String description;
 	private String x;
@@ -18,9 +18,8 @@ public class Waste {
 	public Waste() {
 	}
 	
-	public Waste(String id, String name, String description, String x, String y, String device, String time) {
+	public Waste(String name, String description, String x, String y, String device, String time) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.x = x;
@@ -29,10 +28,10 @@ public class Waste {
 		this.time = time;
 	}
 	
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getName() {
