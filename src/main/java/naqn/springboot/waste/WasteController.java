@@ -20,7 +20,7 @@ public class WasteController {
 		return wasteService.getAllWastes();
 	}
 
-	@RequestMapping("/wastes/{id:[\\\\d]+}")
+	@RequestMapping("/wastes/{id:[\\d]+}")
 	public Waste getWaste(@PathVariable long idFromUrl) {		
 		return wasteService.getWaste(idFromUrl);
 	}
@@ -35,9 +35,9 @@ public class WasteController {
 		return wasteService.updateWaste(idString, waste);
 	}
 
-	@RequestMapping(method=RequestMethod.DELETE, value="/wastes/{id}")
-	public void updateWaste(@PathVariable Long idString) {
-		wasteService.deleteWaste(idString);
+	@RequestMapping(method=RequestMethod.DELETE, value="/wastes/{id:[\\d]+}")
+	public void updateWaste(@PathVariable long idFromUrl) {
+		wasteService.deleteWaste(idFromUrl);
 	}	
 	
 }
