@@ -1,6 +1,11 @@
 package naqn.springboot.waste;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "wastes")
 public class Waste {
+    @Id	
 	private String id;
 	private String name;
 	private String description;
