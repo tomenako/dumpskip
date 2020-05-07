@@ -13,8 +13,13 @@ ENV PATH $PATH:$MAVEN_HOME/bin
 
 RUN rm -rf /usr/local/apache-maven-3.3.9-bin.tar.gz
 
-COPY target/illegal-dumps-api-0.99.jar wastes.jar
+RUN mkdir app
+
+COPY target/illegal-dumps-api-0.99.jar app/wastes.jar
+
+COPY app.properties app/application.properties
 
 EXPOSE 8888
 
-CMD ["java", "-jar", "wastes.jar"]
+ENTRYPOINT ["java", "-jar", "/app/wastes.jar"]
+CMD ["--spring.config.location=/app/application.properties"]
