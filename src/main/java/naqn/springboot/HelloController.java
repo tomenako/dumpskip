@@ -7,6 +7,6 @@ public class HelloController {
 
     @RequestMapping("/")
     public String index() {
-        return "Just up!";
+        return "Waste-Watch is up!";
     }
 }
